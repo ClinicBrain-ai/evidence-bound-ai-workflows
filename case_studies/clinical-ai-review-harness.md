@@ -2,38 +2,107 @@
 
 ## Executive Summary
 
-The Clinical AI Review Harness is a structured evaluation workflow for reviewing AI-generated clinical outputs against explicit source evidence and reviewer criteria. It helps identify whether an AI response is grounded, overextended, incomplete, or clinically unsafe.
+The Clinical AI Review Harness is a local-only review framework for checking whether AI-generated clinical-adjacent outputs remain grounded in source evidence, appropriately scoped, uncertainty-aware, and suitable for human review.
+
+This is a portfolio/research artifact. It is designed to demonstrate evaluation thinking, not to serve as a clinical tool.
 
 ## Problem
 
-Clinical AI outputs can sound coherent while drifting beyond the evidence. Product teams and evaluators need a way to inspect not only the final answer, but also how well the answer stays bound to the case material and the review task.
+AI-generated clinical-adjacent outputs can sound fluent, complete, and confident even when they drift beyond the available evidence. A polished output may contain unsupported claims, omit important uncertainty, blur source facts with interpretation, or exceed the workflow boundary.
 
-## Discovery
+Healthcare AI teams therefore need more than a final-answer review. They need a structured way to inspect the relationship between the AI output, the source packet, the reviewer criteria, and the workflow boundary.
 
-The harness was developed from repeated review cycles where AI-generated clinical review outputs needed to be checked against source packets. The main discovery was that evaluation needs to capture claim quality, evidence alignment, omissions, uncertainty handling, and revision behavior.
+## Why It Matters
 
-## Architecture
+In healthcare contexts, the risk is not only that an AI output is wrong. The risk is that it may be partly supported, partly unsupported, partly incomplete, and still persuasive.
 
-The harness is organized around a repeatable review loop:
+A review harness helps teams ask:
+
+- Which claims are directly supported by evidence?
+- Which claims are plausible but unsupported?
+- Which claims exceed the available case material?
+- What did the output omit?
+- Did it handle uncertainty appropriately?
+- Did it stay inside the intended workflow?
+- What should a human reviewer accept, correct, reject, or escalate?
+
+This is the review layer that makes human-in-the-loop AI more meaningful.
+
+## Approach
+
+I designed the Clinical AI Review Harness as a repeatable review loop for evaluating AI-generated clinical-adjacent outputs against source material and reviewer criteria.
+
+The harness is organized around:
 
 - Input case packet
-- AI-generated review
+- AI-generated review output
 - Evidence check
 - Claim classification
-- Reviewer judgment
+- Omission review
+- Uncertainty review
+- Human reviewer judgment
 - Revision notes
 - Boundary assessment
 
-The key design choice is to evaluate the relationship between claims and evidence, not just the surface quality of the generated text.
+The core design choice is to evaluate the relationship between claims and evidence, not merely the surface quality of generated text.
 
-## Limitations
+## Key Discoveries
 
-The harness does not certify clinical correctness by itself. It depends on reviewer expertise, well-formed synthetic or de-identified case packets, and clear evaluation criteria. It is strongest as a review and evaluation scaffold, not as a standalone safety system, diagnostic tool, treatment recommendation tool, second-opinion system, medical device, or patient-facing advice system.
+1. **Fluency is not the same as grounding.** AI outputs can read well while making claims that are not clearly supported by the available source material.
+2. **Omissions are evaluation failures too.** A review output can avoid obvious false statements while still failing to mention important uncertainty, missing information, or limitations.
+3. **Evaluation needs reviewer action categories.** Human reviewers need a way to mark claims as acceptable, needs correction, unsupported, out of scope, or requires escalation.
+4. **Revision behavior matters.** A safer workflow should not only identify issues; it should document how the output should be revised and why.
+5. **The harness is strongest as a scaffold, not a standalone safety system.** It helps make review more systematic, but it does not certify clinical correctness or deployment readiness.
 
-## Future Work
+## What I Built / Produced
 
-Future versions could include inter-rater reliability tracking, rubric scoring, model comparison views, structured failure taxonomies, and integration with annotation or evaluation tooling.
+- A public case-study artifact explaining the Clinical AI Review Harness.
+- A review-loop model for checking AI-generated clinical-adjacent outputs against source packets.
+- A claim-evaluation framing for evidence alignment, overreach, omissions, uncertainty, and boundary assessment.
+- A human review structure that supports acceptance, correction, rejection, revision, and escalation.
+- Clear limitations that keep the artifact within local-only portfolio/research scope.
+
+## What It Demonstrates
+
+This case study demonstrates practical AI evaluation judgment in a healthcare context. It shows that I can think beyond whether an answer sounds good and toward whether each claim is supportable, bounded, reviewable, and appropriate for the workflow.
+
+For healthcare AI teams, this is relevant to:
+
+- AI output evaluation
+- Clinical-adjacent documentation review
+- Human-in-the-loop AI systems
+- Healthcare AI product QA
+- Responsible AI evaluation
+- Clinical safety review workflows
+- Reviewer rubric design
+- Failure-mode documentation
 
 ## Hiring Signal
 
-This project shows practical judgment in clinical AI evaluation: grounding, omission detection, review criteria, human oversight, and workflow design. It is relevant to AI evaluation teams, healthcare AI product teams, and clinical safety review functions.
+This project signals that I can work with clinical AI product, evaluation, and safety teams to design review workflows for AI-generated content. I can help define what reviewers should look for, how claims should be classified, and how outputs should be revised before they are trusted inside a workflow.
+
+Strong fit signals:
+
+- Claim-level evaluation mindset
+- Evidence alignment and overreach detection
+- Omission and uncertainty awareness
+- Human reviewer workflow design
+- Safety-boundary discipline
+- Ability to communicate evaluation logic to engineering and non-engineering stakeholders
+
+## Limitations
+
+- The harness does not certify clinical correctness.
+- It depends on reviewer expertise, source quality, and clear evaluation criteria.
+- It has not yet been validated across large datasets, multiple clinical domains, or multiple reviewer groups.
+- It is currently best understood as a local-only portfolio/research scaffold for structured review.
+- It is not a production monitoring system, regulatory validation framework, clinical deployment artifact, or patient-facing system.
+
+## Future Work
+
+- Add a scoring rubric for evidence alignment, uncertainty handling, omissions, and scope control.
+- Add inter-rater reliability tracking across multiple reviewers.
+- Add a structured failure taxonomy for unsupported claims, overextension, missing caveats, outdated evidence, and authority mismatch.
+- Add model-comparison views to evaluate different AI outputs against the same source packet.
+- Add annotation-tool integration or a lightweight reviewer interface.
+- Add audit-trail concepts showing how outputs were corrected over review cycles.

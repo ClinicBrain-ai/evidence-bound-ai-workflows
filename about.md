@@ -1,6 +1,6 @@
 # About
 
-I am a dentist building evidence-bound human-AI review workflows.
+Patrick Chen — Dentist building evidence-bound human-AI review workflows for healthcare.
 
 My work focuses on how clinical information is packaged, reviewed, challenged, revised, and converted into human review support without hiding the evidence trail. The goal is not to replace clinical judgment. The goal is to make AI-assisted review inspectable enough for clinical, product, informatics, and evaluation teams to understand the workflow boundaries.
 
@@ -39,6 +39,6 @@ This work is most relevant to:
 
 ## Positioning Statement
 
-Dentist building evidence-bound human-AI review workflows.
+Patrick Chen — Dentist building evidence-bound human-AI review workflows for healthcare.
 
 The evidence is the work. The title is for the market to decide.
