@@ -26,6 +26,13 @@ How can clinical AI workflows make reasoning, evidence use, reviewer judgment, a
 | [Clinical AI Review Harness](case_studies/clinical-ai-review-harness.md) | Evaluates AI-generated clinical-adjacent outputs against source evidence and reviewer criteria | AI evaluation teams, healthcare AI hiring managers |
 | [Evidence-Bound Review Workflow Model](research/evidence-bound-review-workflow-model.md) | Connects evidence, AI output, human review, and workflow boundaries into a reusable model | Clinical AI product teams, AI evaluation teams |
 
+## Companion Repositories
+
+| Repository | Role In Portfolio | Boundary |
+| --- | --- | --- |
+| [Evidence-Bound Clinical Review Toolkit](https://github.com/ClinicBrain-ai/evidence-bound-clinical-review-toolkit) | Converts AI-generated healthcare-adjacent outputs into evidence-linked, human-reviewable Clinical Review Packets | Review infrastructure only; not clinical use |
+| [Evidence-Bound AI Evaluation Harness](https://github.com/ClinicBrain-ai/evidence-bound-ai-evaluation-harness) | Evaluates AI-generated healthcare-adjacent outputs for unsupported claims, missing context, uncertainty gaps, source conflicts, scope-boundary issues, and human-review routing | Reviewability and evidence-alignment only; not clinical correctness validation |
+
 ## Repository Structure
 
 ```text
